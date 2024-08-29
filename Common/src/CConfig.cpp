@@ -3260,6 +3260,8 @@ void CConfig::SetHeader(SU2_COMPONENT val_software) const{
   if ((iZone == 0) && (rank == MASTER_NODE)) {
     cout << "\n";
     cout << "-------------------------------------------------------------------------\n";
+    cout << " \t RUNNING ALESSANDRO GIANNOTTA VERSION\n\v";
+    cout << "-------------------------------------------------------------------------\n";
     cout << "|    ___ _   _ ___                                                      |\n";
     cout << "|   / __| | | |_  )   Release 8.0.1 \"Harrier\"                           |\n";
     cout << "|   \\__ \\ |_| |/ /                                                      |\n";

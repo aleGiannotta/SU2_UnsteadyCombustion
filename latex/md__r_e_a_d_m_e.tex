@@ -1,0 +1,95 @@
+\chapter{README}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{README@{README}}
+
+
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md21}{}\doxysection{\texorpdfstring{SU2 (ver. 8.\+0.\+1 "{}\+Harrier"{})\+: The Open-\/\+Source CFD Code}{SU2 (ver. 8.\+0.\+1 "{}\+Harrier"{})\+: The Open-\/\+Source CFD Code}}\label{md__r_e_a_d_m_e_autotoc_md21}
+Computational analysis tools have revolutionized the way we design engineering systems, but most established codes are proprietary, unavailable, or prohibitively expensive for many users. The SU2 team is changing this, making multiphysics analysis and design optimization freely available as open-\/source software and involving everyone in its creation and development.
+
+For an overview of the technical details in SU2, please see the following AIAA Journal article\+:
+
+"{}\+SU2\+: An open-\/source suite for multiphysics simulation and design,"{} AIAA Journal, 54(3)\+:828-\/846, 2016. \href{http://arc.aiaa.org/doi/10.2514/1.J053813}{\texttt{ http\+://arc.\+aiaa.\+org/doi/10.\+2514/1.\+J053813}}
+
+Please note that this project is released with a \doxysectlink{md__c_o_d_e___o_f___c_o_n_d_u_c_t}{Contributor Code of Conduct}{0}. By participating in this project you agree to abide by its terms.
+
+Continuous Integration\+:~\newline
+ \href{https://github.com/su2code/SU2/actions}{\texttt{ }} \href{https://github.com/su2code/SU2/actions}{\texttt{ }}
+
+Code Quality\+:~\newline
+ \href{https://www.codefactor.io/repository/github/su2code/su2}{\texttt{ }}\hypertarget{md__r_e_a_d_m_e_autotoc_md22}{}\doxysection{\texorpdfstring{SU2 Introduction}{SU2 Introduction}}\label{md__r_e_a_d_m_e_autotoc_md22}
+SU2 is a suite of open-\/source software tools written in C++ for the numerical solution of partial differential equations (PDE) and performing PDE constrained optimization.
+
+The primary applications are computational fluid dynamics and aerodynamic shape optimization, but has been extended to treat more general equations such as electrodynamics and chemically reacting flows.
+
+You will find more information and the latest news in\+:
+
+
+\begin{DoxyItemize}
+\item SU2 Home Page\+: \href{https://su2code.github.io}{\texttt{ https\+://su2code.\+github.\+io}}
+\item Git\+Hub repository\+: \href{https://github.com/su2code}{\texttt{ https\+://github.\+com/su2code}}
+\item CFD Online\+: \href{http://www.cfd-online.com/Forums/su2/}{\texttt{ http\+://www.\+cfd-\/online.\+com/\+Forums/su2/}}
+\item Twitter\+: \href{https://twitter.com/su2code}{\texttt{ https\+://twitter.\+com/su2code}}
+\item Facebook\+: \href{https://www.facebook.com/su2code}{\texttt{ https\+://www.\+facebook.\+com/su2code}}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md23}{}\doxysection{\texorpdfstring{SU2 Installation}{SU2 Installation}}\label{md__r_e_a_d_m_e_autotoc_md23}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md24}{}\doxysubsection{\texorpdfstring{Precompiled binaries for Linux, Mac\+OS, Windows}{Precompiled binaries for Linux, Mac\+OS, Windows}}\label{md__r_e_a_d_m_e_autotoc_md24}
+You can find precompiled binaries of the latest version on our \href{https://su2code.github.io/download.html}{\texttt{ download page}} or under \href{https://github.com/su2code/SU2/releases}{\texttt{ releases}}.\hypertarget{md__r_e_a_d_m_e_autotoc_md25}{}\doxysubsection{\texorpdfstring{Build SU2}{Build SU2}}\label{md__r_e_a_d_m_e_autotoc_md25}
+The build system of SU2 is based on a combination of \href{http://mesonbuild.com/}{\texttt{ meson}} (as the front-\/end) and \href{https://ninja-build.org/}{\texttt{ ninja}} (as the back-\/end). Meson is an open source build system meant to be both extremely fast, and, even more importantly, as user friendly as possible. Ninja is a small low-\/level build system with a focus on speed.
+
+Short summary of the minimal requirements\+:
+
+
+\begin{DoxyItemize}
+\item C/\+C++ compiler
+\item Python 3
+\end{DoxyItemize}
+
+{\bfseries{Note\+:}} all other necessary build tools and dependencies are shipped with the source code or are downloaded automatically.
+
+If you have these tools installed, you can create a configuration using the {\ttfamily \doxylink{meson_8py}{meson.\+py}} found in the root source code folder\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./meson.py\ build}
+
+\end{DoxyCode}
+
+
+Use {\ttfamily ninja} to compile and install the code
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./ninja\ -\/C\ build\ install}
+
+\end{DoxyCode}
+
+
+For more information on how to install and build SU2 on Linux, Mac\+OS or Windows, have a look at the \href{https://su2code.github.io/docs_v7/}{\texttt{ documentation}}.\hypertarget{md__r_e_a_d_m_e_autotoc_md26}{}\doxysubsection{\texorpdfstring{SU2 Path setup}{SU2 Path setup}}\label{md__r_e_a_d_m_e_autotoc_md26}
+When installation is complete, please be sure to add the {\ttfamily \$SU2\+\_\+\+HOME} and {\ttfamily \$SU2\+\_\+\+RUN} environment variables, and update your {\ttfamily \$PATH} with {\ttfamily \$SU2\+\_\+\+RUN}.
+
+For example, add these lines to your {\ttfamily .bashrc} file\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ SU2\_RUN="{}your\_prefix/bin"{}}
+\DoxyCodeLine{export\ SU2\_HOME="{}/path/to/SU2vX.X.X/"{}}
+\DoxyCodeLine{export\ PATH=\$PATH:\$SU2\_RUN}
+\DoxyCodeLine{export\ PYTHONPATH=\$SU2\_RUN:\$PYTHONPATH}
+
+\end{DoxyCode}
+
+
+{\ttfamily \$SU2\+\_\+\+RUN} should point to the folder where all binaries and python scripts were installed. This is the prefix you set with the --prefix option to meson. Note that the bin/ directory is automatically added to your prefix path.
+
+{\ttfamily \$SU2\+\_\+\+HOME} should point to the root directory of the source code distribution, i.\+e., {\ttfamily /path/to/\+SU2vX.X.\+X/}.
+
+Thanks for building, and happy optimizing!
+
+
+\begin{DoxyItemize}
+\item The SU2 Development Team
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md27}{}\doxysection{\texorpdfstring{SU2 Developers}{SU2 Developers}}\label{md__r_e_a_d_m_e_autotoc_md27}
+We follow the popular "{}\+Git\+Flow"{} branching model for scalable development. In the SU2 repository, the master branch represents the latest stable major or minor release (7.\+0, 6.\+2.\+0, etc.), it should only be modified during version releases. Work that is staged for release is put into the develop branch via Pull Requests on Git\+Hub from various "{}feature"{} branches where folks do their day-\/to-\/day work on the code. At release time, the work that has been merged into the develop branch is pushed to the master branch and tagged as a release.
+
+SU2 is being developed by individuals and organized teams all around the world.
+
+A list of current contributors can be found in the AUTHORS.\+md file.\hypertarget{md__r_e_a_d_m_e_autotoc_md28}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{md__r_e_a_d_m_e_autotoc_md28}
+Code documentation can be generated by calling doxygen from the root of the project, then open Docs/html/index.\+html in a browser to consult the documentation. 
